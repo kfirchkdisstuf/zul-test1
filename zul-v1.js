@@ -1,8 +1,32 @@
 if (Meteor.isClient) {
- /// //Meteor.Router.add({
- //   '/': 'home'
- // });
-  Template.login.events({
+	Meteor.Router.add({
+    '/': 'userPage',
+    '/admin': 'adminPage',
+    '/newbar': 'newbarPage',
+    '/getbar': 'getbarPage'
+  })
+  
+
+
+
+	Template.body.helpers({
+    layoutName: function() {
+      switch (Meteor.Router.page()) {
+        case 'adminPage':
+          return 'adminLayout';
+        case 'userPage':
+          return 'userLayout';
+        case 'newbarPage':
+          return 'newbarLayout';
+	case 'getbarPage':
+          return 'getbarrLayout';
+	default:
+          return 'userLayout';
+      }
+    }
+  });
+
+  Template.userPage.events({
     'click #loginButton' : function () {
       // template data, if any, is available in 'this'
       if (typeof console !== 'undefined')
@@ -18,20 +42,20 @@ if (Meteor.isClient) {
 
         }
 	alert("hi");
-	console.log("logging");
+	//console.log("logging");
         Accounts.createUser(options);
         Meteor.loginWithPassword(username,password,function(err){
         if (err)
         {
 
-          alert("bad")
+          alert("bad");
 
         }
         else
         {
-        console.log("You pressed the button  " + Meteor.user().username);
+        //console.log("You pressed the button  " + Meteor.user().username);
 	alert("logged in");
-        Meteor.Router.add( { '/foo': [301, {Location: '/bar'}, ""] } );
+        Meteor.Router.add( { '/adminPage': [301, {Location: '/userPage'}, ""] } );
 
         }});
         //Meteor.user();
