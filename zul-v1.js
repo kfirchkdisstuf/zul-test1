@@ -17,7 +17,9 @@ if (Meteor.isClient) {
 
 
         }
-       // Accounts.createUser(options);
+	alert("hi");
+	console.log("logging");
+        Accounts.createUser(options);
         Meteor.loginWithPassword(username,password,function(err){
         if (err)
         {
@@ -28,6 +30,7 @@ if (Meteor.isClient) {
         else
         {
         console.log("You pressed the button  " + Meteor.user().username);
+	alert("logged in");
         Meteor.Router.add( { '/foo': [301, {Location: '/bar'}, ""] } );
 
         }});
