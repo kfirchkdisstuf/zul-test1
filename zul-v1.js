@@ -19,7 +19,7 @@ if (Meteor.isClient) {
         case 'newbarPage':
           return 'newbarLayout';
 	case 'getbarPage':
-          return 'getbarrLayout';
+          return 'getbarLayout';
 	default:
           return 'userLayout';
       }

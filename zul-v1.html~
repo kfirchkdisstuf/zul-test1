@@ -34,8 +34,8 @@
 
 <template name="adminPage">
   <h1>Hello World!</h1>
-  <input type="button" value="Add New Bar" onclick="document.location='/AddNewBar'"/>
-  <input type="button" value="Get Bar" onclick="document.location='/getBar'"/>
+  <input type="button" value="Add New Bar" onclick="document.location='/addbar'"/>
+  <input type="button" value="Get Bar" onclick="document.location='/getbar'"/>
 </template>
 
 <template name="userPage">
